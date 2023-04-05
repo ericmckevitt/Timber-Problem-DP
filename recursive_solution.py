@@ -6,6 +6,8 @@ sequence = []
 
 # Recursive solution
 def T(i: int, j: int) -> int:
+    print("recursive call made")
+    
     # If there is only one piece left
     if j == i: 
         # I take it
@@ -13,6 +15,10 @@ def T(i: int, j: int) -> int:
     
     # If there are two pieces left
     if j == i + 1:
+        # Break ties by choosing i
+        if tree[i] == tree[j]:
+            return tree[i]
+        
         # I take whichever is biggest
         return max([tree[i], tree[j]])
     
