@@ -13,29 +13,29 @@ def T(i: int, j: int) -> int:
     dp_table = [[0 for _ in range(n) ] for _ in range(n) ]
         
     # loop over the table from bottom row to top row
-    for row in range(n - 1, -1, -1):
-        for col in range(n):
+    for i in range(n - 1, -1, -1):
+        for j in range(n):
             
             # i must be less than j
-            if row > col:
+            if i > j:
                 continue
             
             # Base case 1: l_i if i == j
-            if row == col:
-                dp_table[row][col] = tree[row + 1] # +1 bc 1-indexed
+            if i == j:
+                dp_table[i][j] = tree[i + 1] # +1 bc 1-indexed
                 continue
                 
             # Base case 2: max(l_i, l_j) if j = i + 1 
-            if col == row + 1:
-                dp_table[row][col] = max(tree[row + 1], tree[col + 1])
+            if j == i + 1:
+                dp_table[i][j] = max(tree[i + 1], tree[j + 1])
                 continue
             
             # Recurrence relation
-            dp_table[row][col] = max(tree[row+1] + min(dp_table[row+2][col], dp_table[row+1][col-1]),
-                                        tree[col+1] + min(dp_table[row+1][col-1], dp_table[row][col-2]))
+            dp_table[i][j] = max(tree[i+1] + min(dp_table[i+2][j], dp_table[i+1][j-1]),
+                                        tree[j+1] + min(dp_table[i+1][j-1], dp_table[i][j-2]))
             
         print()
     print_table(dp_table)
     print()
     
-T(52987, 5214)
+T(5, 5)

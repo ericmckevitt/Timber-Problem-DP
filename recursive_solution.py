@@ -1,5 +1,6 @@
 # Add None so that it is 1-indexed, as requested by problem definition.
 tree = [None, 5, 6, 9, 7]
+# tree = [None, 6, 5, 7, 6, 4]
 
 # Monitor the sequence of indices that were chosen from the tree
 sequence = []
