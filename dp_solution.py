@@ -22,7 +22,6 @@ def find_chosen_segments(tree: list, traceback_matrix: list[list[int]]):
 
     return chosen_segments
 
-
 def T(tree) -> int:
     
     n = len(tree) - 1
@@ -64,19 +63,24 @@ def output_solution(tree, dp_table, traceback_list):
     for i, elem in enumerate(traceback_list):
         print(elem, end=" ") if i < len(traceback_list) - 1 else print(elem, end="")
 
-# tree = [None, 6, 5, 7, 6, 4]
-# # tree = [None, 5, 6, 9, 7]
+def main():
+    
+    # Don't need the number of inputs
+    n_items = int(input().strip())
+    tree = [None]
+    second_line = input()
+    segments = second_line.split(" ")
+    segments = [seg for seg in segments if seg.strip()]  # filter out empty strings and spaces
+    for segment in segments: 
+        tree.append(int(segment))
+    
+    # Solve and print solution
+    dp_table = T(tree)
+    
+    # Print out the traceback 
+    sequence = find_chosen_segments(tree, dp_table[1][:][:])
+    output_solution(tree, dp_table, sequence)
 
-# dp_table = T(tree)
-# print("DP Table:")
-# print_table(dp_table[0][:][:])
 
-# print("Traceback Table")
-# print_table(dp_table[1][:][:])
-
-# print("Sequence:")
-# sequence = find_chosen_segments(tree, dp_table[1][:][:])
-# print(sequence)
-
-# print("Output:")
-# output_solution(tree, dp_table, sequence)
+if __name__ == "__main__":
+    main()
