@@ -4,7 +4,7 @@ def print_table(table):
             print(f"{col}", end="\t")
         print()
 
-def find_chosen_segments(tree: list, traceback_matrix: list[list[int]]):
+def find_chosen_segments(tree, traceback_matrix):
     n = len(traceback_matrix)
     chosen_segments = []
     i = 0
@@ -22,7 +22,7 @@ def find_chosen_segments(tree: list, traceback_matrix: list[list[int]]):
 
     return chosen_segments
 
-def T(tree) -> int:
+def T(tree):
     
     n = len(tree) - 1
     
@@ -61,7 +61,7 @@ def output_solution(tree, dp_table, traceback_list):
     n = len(tree) - 2 # another -1 bc 1 indexed
     print(dp_table[0][0][n])
     for i, elem in enumerate(traceback_list):
-        print(elem, end=" ") if i < len(traceback_list) - 1 else print(elem, end="")
+        print(elem, end=" ") if i < len(traceback_list) - 1 else print(elem, end="\n")
 
 def main():
     

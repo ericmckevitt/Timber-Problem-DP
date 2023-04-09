@@ -1,5 +1,6 @@
 from recursive_solution import T as recursive_function
 from dp_solution import T as dp_function
+from dp_solution import output_solution, find_chosen_segments, print_table
 import time
 import random
 import matplotlib.pyplot as plt
@@ -109,7 +110,22 @@ def main():
     # end_time = time.perf_counter()
     # print(f"Executed in {end_time - start_time:.6f} seconds\n")
     
+def test():
+    tree = generate_tree(1000)
+    
+    start = time.perf_counter()
+    # Solve and print solution
+    dp_table = dp_function(tree)
+    
+    # Print out the traceback 
+    sequence = find_chosen_segments(tree, dp_table[1][:][:])
+    output_solution(tree, dp_table, sequence)
+    
+    end = time.perf_counter()
+    
+    print(f"Runtime: {end - start}")
     
 
 if __name__ == "__main__":
-    main()
+    # main()
+    test()
