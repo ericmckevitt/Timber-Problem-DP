@@ -29,8 +29,6 @@ def main():
     n = len(tree) - 1
     result = T(1, n, tree)
     print(result)
-    
-    # print( 2 ** (n - 1) )
 
 if __name__ == "__main__":
     main()
